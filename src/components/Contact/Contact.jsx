@@ -1,5 +1,6 @@
+import { PropTypes } from "prop-types";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsSlice";
+import { deleteContact } from "../../redux/contactsOps";
 import { FaUser, FaPhone } from "react-icons/fa";
 import css from "./Contact.module.css";
 
@@ -24,6 +25,10 @@ const Contact = ({ contact }) => {
       </button>
     </div>
   );
+};
+
+Contact.propTypes = {
+  contact: PropTypes.object.isRequired,
 };
 
 export default Contact;
