@@ -11,8 +11,8 @@ const ContactSchema = Yup.object().shape({
     .max(50, "Too Long!")
     .required("Required"),
   number: Yup.string()
-    .matches(/^\d{3}-\d{2}-\d{2}$/, {
-      message: "Enter correct phone number: 111-11-11",
+    .matches(/^\d{3}-\d{3}-\d{4}$/, {
+      message: "Enter correct phone number: 123-456-7890",
       excludeEmptyString: false,
     })
     .required("Required"),
@@ -30,7 +30,7 @@ const ContactForm = () => {
   const numberFieldId = useId();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContact(values.name, values.number));
+    dispatch(addContact(values));
     actions.resetForm();
   };
 
@@ -62,7 +62,7 @@ const ContactForm = () => {
             type="text"
             name="number"
             id={numberFieldId}
-            placeholder="123-45-67"
+            placeholder="123-456-7890"
           />
           <ErrorMessage
             name="number"
